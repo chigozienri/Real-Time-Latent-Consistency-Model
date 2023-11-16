@@ -1,0 +1,25 @@
+# Need to work out what versions will work on replicate.
+build:
+  gpu: true
+  cuda: "11.8"
+  python_version: "3.11"
+  system_packages:
+    - tmux
+    - ssh
+  python_packages:
+    - "git+https://github.com/huggingface/diffusers.git@6110d7c95f630479cf01340cc8a8141c1e359f09"
+    - "transformers==4.34.1"
+    - "gradio==3.50.2 --extra-index-url https://download.pytorch.org/whl/cu121"
+    - "torch==2.1.0"
+    - "fastapi==0.104.0"
+    - "uvicorn==0.24.0"
+    - "Pillow==10.1.0"
+    - "accelerate==0.24.0"
+    - "compel==2.0.2"
+    - "controlnet-aux==0.0.7"
+    - "peft==0.6.0"
+  run:
+    - curl -fsSL https://tailscale.com/install.sh | sh
+
+
+predict: "predict.py:Predictor"
